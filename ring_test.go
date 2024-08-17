@@ -250,7 +250,7 @@ func TestDistributeServers(t *testing.T) {
 			},
 		}
 
-		ring.DistributeServers()
+		ring.distributeServers()
 
 		assert.Equal(t, expected, ring)
 	})

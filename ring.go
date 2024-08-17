@@ -78,13 +78,13 @@ func NewRing(config Config, servers ...netip.AddrPort) *Ring {
 func (s *Ring) AddServers(servers ...netip.AddrPort) {
 	s.servers = append(s.servers, servers...)
 
-	s.DistributeServers()
+	s.distributeServers()
 }
 
-// DistributeServers starts server balancing across the ring.
+// distributeServers starts server balancing across the ring.
 // If no servers were previously distributed, then they
 // will be distributed.
-func (s *Ring) DistributeServers() {
+func (s *Ring) distributeServers() {
 	if len(s.servers) == 0 {
 		return
 	}
@@ -157,5 +157,5 @@ func (s *Ring) RemoveServer(server netip.AddrPort) {
 
 	s.servers = append(s.servers[:index], s.servers[index+1:]...)
 
-	s.DistributeServers()
+	s.distributeServers()
 }

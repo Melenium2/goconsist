@@ -26,19 +26,19 @@ func main() {
   }
 
   config := goconsist.Config{
-	// SectionFactor is a range of numbers included to single ring section.
-	//
-	// Example:
-	//  Given a ring of 3 ranges:
-	//  0 - 2, 3 - 5, 6 - 0.
-	//  In this case, shard factor equals to 2.
+    // SectionFactor is a range of numbers included to single ring section.
+    //
+    // Example:
+    //  Given a ring of 3 ranges:
+    //  0 - 2, 3 - 5, 6 - 0.
+    //  In this case, shard factor equals to 2.
     SectionFactor: 10,
-	// SectionCount is a number of ranges located in the ring.
-	//
-	// Example:
-	//  0 - 1, 2 - 3, 4 - 5, 6 - 0.
-	//  In this case ranges count equals to 4.
-	SectionCount: 30,
+    // SectionCount is a number of ranges located in the ring.
+    //
+    // Example:
+    //  0 - 1, 2 - 3, 4 - 5, 6 - 0.
+    //  In this case ranges count equals to 4.
+    SectionCount: 30,
   }
 
   ring := goconsist.NewRing(config, servers...)
@@ -57,25 +57,25 @@ the server address will return the empty netip.AddrPort{} structure.
 func main() {
   // Servers that should be distributed across the ring.
   servers := []netip.AddrPort{
-	  netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 10),
-	  netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 20),
+    netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 10),
+    netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 20),
 	  netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 30),
   }
 
   config := goconsist.Config{
-	// SectionFactor is a range of numbers included to single ring section.
-	//
-	// Example:
-	//  Given a ring of 3 ranges:
-	//  0 - 2, 3 - 5, 6 - 0.
-	//  In this case, shard factor equals to 2.
+    // SectionFactor is a range of numbers included to single ring section.
+    //
+    // Example:
+    //  Given a ring of 3 ranges:
+    //  0 - 2, 3 - 5, 6 - 0.
+    //  In this case, shard factor equals to 2.
     SectionFactor: 10,
-	// SectionCount is a number of ranges located in the ring.
-	//
-	// Example:
-	//  0 - 1, 2 - 3, 4 - 5, 6 - 0.
-	//  In this case ranges count equals to 4.
-	SectionCount: 30,
+    // SectionCount is a number of ranges located in the ring.
+    //
+    // Example:
+    //  0 - 1, 2 - 3, 4 - 5, 6 - 0.
+    //  In this case ranges count equals to 4.
+    SectionCount: 30,
   }
 
   ring := goconsist.NewRing(config)
@@ -100,8 +100,8 @@ func main() {
   // Servers that should be distributed across the ring.
   servers := []netip.AddrPort{
     server1,
-	netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 20),
-	netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 30),
+    netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 20),
+    netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 30),
   }
 
   ring := goconsist.NewRing(goconsist.Config{}, servers)

@@ -59,7 +59,7 @@ func main() {
   servers := []netip.AddrPort{
     netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 10),
     netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 20),
-	  netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 30),
+    netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 30),
   }
 
   config := goconsist.Config{

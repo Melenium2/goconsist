@@ -26,22 +26,22 @@ func main() {
   }
 
   config := goconsist.Config{
-	  // SectionFactor is a range of numbers included to single ring section.
-	  //
-	  // Example:
-	  //  Given a ring of 3 ranges:
-	  //  0 - 2, 3 - 5, 6 - 0.
-	  //  In this case, shard factor equals to 2.
+	// SectionFactor is a range of numbers included to single ring section.
+	//
+	// Example:
+	//  Given a ring of 3 ranges:
+	//  0 - 2, 3 - 5, 6 - 0.
+	//  In this case, shard factor equals to 2.
     SectionFactor: 10,
-	  // SectionCount is a number of ranges located in the ring.
-	  //
-	  // Example:
-	  //  0 - 1, 2 - 3, 4 - 5, 6 - 0.
-	  //  In this case ranges count equals to 4.
-	  SectionCount: 30,
+	// SectionCount is a number of ranges located in the ring.
+	//
+	// Example:
+	//  0 - 1, 2 - 3, 4 - 5, 6 - 0.
+	//  In this case ranges count equals to 4.
+	SectionCount: 30,
   }
 
-	ring := goconsist.NewRing(config, servers...)
+  ring := goconsist.NewRing(config, servers...)
 
   // ...
 }
@@ -63,22 +63,22 @@ func main() {
   }
 
   config := goconsist.Config{
-	  // SectionFactor is a range of numbers included to single ring section.
-	  //
-	  // Example:
-	  //  Given a ring of 3 ranges:
-	  //  0 - 2, 3 - 5, 6 - 0.
-	  //  In this case, shard factor equals to 2.
+	// SectionFactor is a range of numbers included to single ring section.
+	//
+	// Example:
+	//  Given a ring of 3 ranges:
+	//  0 - 2, 3 - 5, 6 - 0.
+	//  In this case, shard factor equals to 2.
     SectionFactor: 10,
-	  // SectionCount is a number of ranges located in the ring.
-	  //
-	  // Example:
-	  //  0 - 1, 2 - 3, 4 - 5, 6 - 0.
-	  //  In this case ranges count equals to 4.
-	  SectionCount: 30,
+	// SectionCount is a number of ranges located in the ring.
+	//
+	// Example:
+	//  0 - 1, 2 - 3, 4 - 5, 6 - 0.
+	//  In this case ranges count equals to 4.
+	SectionCount: 30,
   }
 
-	ring := goconsist.NewRing(config)
+  ring := goconsist.NewRing(config)
 
   // Adds servers after initializing.
   // Each call of AddServers trigger the "distribution" of
@@ -94,17 +94,17 @@ does not exist, the function does nothing.
 
 ```go
 func main() {
-	server1 := netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 10)
-	notExistedServer := netip.AddrPortFrom(netip.AddrFrom4([4]byte{1, 1, 1, 1}), 555)
+  server1 := netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 10)
+  notExistedServer := netip.AddrPortFrom(netip.AddrFrom4([4]byte{1, 1, 1, 1}), 555)
 
   // Servers that should be distributed across the ring.
   servers := []netip.AddrPort{
     server1,
-	  netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 20),
-	  netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 30),
+	netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 20),
+	netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 30),
   }
 
-	ring := goconsist.NewRing(goconsist.Config{}, servers)
+  ring := goconsist.NewRing(goconsist.Config{}, servers)
 
   // Removes server1 from the ring.
   // Each call of RemoveServer trigger the "distribution" of
@@ -131,7 +131,7 @@ func main() {
 	  netip.AddrPortFrom(netip.AddrFrom4([4]byte{10, 1, 1, 1}), 30),
   }
 
-	ring := goconsist.NewRing(goconsist.Config{}, servers)
+  ring := goconsist.NewRing(goconsist.Config{}, servers)
 
   // Got server netip.AddrPort{} structure.
   server := ring.Acquire([]byte("any-value-you-provide"))
